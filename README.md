@@ -22,12 +22,12 @@ Movie Quotes is a website where you can browse the website and view a random mov
 
 ## Prerequisites
 
-### <a href="https://nodejs.org/en/" target="_blank"><img style="float:left; margin-right:10px" src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>  version  and up </a>
-| name                       | version |
-|----------------------------|---------|
-| [node](https://nodejs.org/en/)             | ^16   |
-| backpack/generators        | ^3.1    |
-| backpack/permissionmanager | ^6.0    |
+
+
+| #        | NAME     | VERSION        | Check Version |
+| :---     | :---:    |     :---:      |       :---: |
+| <img src="https://img.icons8.com/color/48/000000/nodejs.png"/>         | <a href="https://nodejs.org/en/" target=_blank>node</a>     | ^16.13.0     | node -v     |
+
 ## Install
 
 Downoad [ZIP](https://github.com/davitlabadze/movie-quotes-vue/archive/refs/heads/master.zip) or Clone:
