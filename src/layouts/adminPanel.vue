@@ -80,7 +80,7 @@
         </div>
       </div>
       <main class="w-full p-16 mx-auto">
-        <!-- <Outlet /> -->
+        <DashboardItem />
       </main>
     </div>
   </div>
@@ -95,6 +95,7 @@ import {
   LogoutIcon,
 } from "@heroicons/vue/outline";
 import LangSwitcher from "../components/adminPanel/LangSwitcher.vue";
+import DashboardItem from "../adminPanel/DashboardItem.vue";
 
 export default {
   components: {
@@ -104,6 +105,7 @@ export default {
     BookOpenIcon,
     LangSwitcher,
     LogoutIcon,
+    DashboardItem,
   },
 };
 </script>
