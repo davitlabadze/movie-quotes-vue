@@ -1,14 +1,40 @@
-# movie-quotes-vue
 
-This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
+## Table of Contents
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+* [ About The App](#about-the-application)
+* [ Prerequisites ](#prerequisites)
+* [ Package](#package)
+* [ Install ](#install)
+* [ Setup ](#project-setup)
+* [ Resources](#resources)
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+<a name="about"></a>
+
+## About the application
+
+Movie Quotes is a website where you can browse the website and view a random movie quote. Also go to the random movie page and see the famous quote from this movie. The website has a multilingual function, it is English and Georgian.
+
+## App looks like 
+!['welcome'](readme/screen1.png)
+!['adminpanel'](readme/adminpanel.png)
+
+## Prerequisites
+
+### <a href="https://nodejs.org/en/" target="_blank"><img style="float:left; margin-right:10px" src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>  version  and up </a>
+| name                       | version |
+|----------------------------|---------|
+| [node](https://nodejs.org/en/)             | ^16   |
+| backpack/generators        | ^3.1    |
+| backpack/permissionmanager | ^6.0    |
+## Install
+
+Downoad [ZIP](https://github.com/davitlabadze/movie-quotes-vue/archive/refs/heads/master.zip) or Clone:
+ ``` 
+git clone https://github.com/davitlabadze/movie-quotes-vue.git
+```
+
 
 ## Project Setup
 
@@ -46,3 +72,47 @@ npm run test:e2e # or `npm run test:e2e:ci` for headless testing
 ```sh
 npm run lint
 ```
+
+##  Resources  
+* [Figma Designs](https://www.figma.com/file/IIJOKK5esgM8uK8pM3D59J/Movie-Quotes?node-id=0%3A1)
+* [TailwindCss](https://tailwindcss.com/docs/guides/laravel)
+* [Backend](https://github.com/RedberryInternship/davitlabadze-movie-quotes.git)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
