@@ -1,7 +1,3 @@
-<script setup>
-import BackButton from "../components/frontend/BackButton.vue";
-</script>
-
 <template>
   <div>
     <BackButton />
@@ -53,4 +49,7 @@ import BackButton from "../components/frontend/BackButton.vue";
   </div>
 </template>
 
+<script setup>
+import BackButton from "../components/frontend/BackButton.vue";
+</script>
 <style></style>

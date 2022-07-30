@@ -1,27 +1,38 @@
 import { createRouter, createWebHistory } from "vue-router";
-import frontLayout from "../layouts/frontLayout.vue";
-import Login from "../auth/LoginItem.vue";
-import AdminPanel from "../layouts/adminPanel.vue";
 
+const routes = [
+  {
+    path: "/",
+    name: "home",
+    component: () => import("../layouts/frontLayout.vue"),
+    children: [
+      {
+        path: "/",
+        name: "singleQuote",
+        component: () => import("../views/singleQuote.vue"),
+      },
+      {
+        path: ":movie-quote",
+        name: "movieQuote",
+        component: () => import("../views/movieQuotes.vue"),
+      },
+      {
+        path: ":login",
+        name: "login",
+        component: () => import("../auth/LoginItem.vue"),
+      },
+    ],
+  },
+
+  {
+    path: "/admin",
+    name: "admin",
+    component: () => import("../layouts/adminPanel.vue"),
+  },
+];
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: frontLayout,
-    },
-    {
-      path: "/login",
-      name: "login",
-      component: Login,
-    },
-    {
-      path: "/admin",
-      name: "admin",
-      component: AdminPanel,
-    },
-  ],
+  routes,
 });
 
 export default router;
