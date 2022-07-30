@@ -41,6 +41,16 @@ const routes = [
         component: () => import("../adminPanel/movies/ViewMovies.vue"),
       },
       {
+        path: "movie-add",
+        name: "admin.movieAdd",
+        component: () => import("../adminPanel/movies/AddMovie.vue"),
+      },
+      {
+        path: "movie-edit",
+        name: "admin.movieEdit",
+        component: () => import("../adminPanel/movies/EditMovie.vue"),
+      },
+      {
         path: "quotes",
         name: "admin.quotes",
         component: () => import("../adminPanel/quotes/ViewQuotes.vue"),
