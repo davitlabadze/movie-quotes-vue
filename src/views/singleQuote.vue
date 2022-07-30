@@ -12,7 +12,9 @@
         Say hello to my little friend!
       </h1>
       <div class="py-2 text-center text-white">
-        <h1 class="font-sans text-5xl underline">kukaracha</h1>
+        <router-link :to="{ name: 'home.movieQuote' }">
+          <h1 class="font-sans text-5xl underline">kukaracha</h1></router-link
+        >
       </div>
     </div>
   </div>

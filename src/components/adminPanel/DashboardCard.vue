@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="flex-1 min-w-0">
-      <router-link to="#">
+      <router-link :to="path">
         <h3 class="focus:outline-none">
           <p class="text-sm font-medium text-white">{{ name }}</p>
           <p class="text-sm text-white truncate">total: {{ data }}</p>

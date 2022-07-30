@@ -8,17 +8,17 @@ const routes = [
     children: [
       {
         path: "/",
-        name: "singleQuote",
+        name: "home.singleQuote",
         component: () => import("../views/singleQuote.vue"),
       },
       {
-        path: ":movie-quote",
-        name: "movieQuote",
+        path: "movie-quote",
+        name: "home.movieQuote",
         component: () => import("../views/movieQuotes.vue"),
       },
       {
-        path: ":login",
-        name: "login",
+        path: "login",
+        name: "home.login",
         component: () => import("../auth/LoginItem.vue"),
       },
     ],
@@ -27,7 +27,25 @@ const routes = [
   {
     path: "/admin",
     name: "admin",
+    redirect: "/admin/dashboard",
     component: () => import("../layouts/adminPanel.vue"),
+    children: [
+      {
+        path: "dashboard",
+        name: "admin.dashboard",
+        component: () => import("../adminPanel/DashboardItem.vue"),
+      },
+      {
+        path: "movies",
+        name: "admin.movies",
+        component: () => import("../adminPanel/movies/ViewMovies.vue"),
+      },
+      {
+        path: "quotes",
+        name: "admin.quotes",
+        component: () => import("../adminPanel/quotes/ViewQuotes.vue"),
+      },
+    ],
   },
 ];
 const router = createRouter({

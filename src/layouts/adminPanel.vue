@@ -14,7 +14,7 @@
             >
               CORE
             </div>
-            <router-link to="#">
+            <router-link :to="{ name: 'admin.dashboard' }">
               <h1
                 class="flex items-center px-2 py-2 text-sm font-medium text-gray-800 bg-gray-300 rounded-md shadow-lg shadow-gray-500/50 dark:bg-slate-800 dark:shadow-none dark:text-blue-700"
               >
@@ -35,7 +35,7 @@
             >
               INTERFACE
             </div>
-            <router-link to="#">
+            <router-link :to="{ name: 'admin.movies' }">
               <h1
                 class="flex items-center px-2 py-2 text-sm font-medium text-gray-700 rounded-md hover:shadow-lg shadow-gray-500/50 hover:text-black dark:hover:bg-slate-800 dark:shadow-none dark:hover:text-slate-600"
               >
@@ -43,7 +43,7 @@
                 Movies
               </h1></router-link
             >
-            <router-link to="#">
+            <router-link :to="{ name: 'admin.quotes' }">
               <h1
                 class="flex items-center px-2 py-2 text-sm font-medium text-gray-700 rounded-md hover:shadow-lg shadow-gray-500/50 hover:text-black dark:hover:bg-slate-800 dark:shadow-none dark:hover:text-slate-600"
               >
@@ -80,7 +80,7 @@
         </div>
       </div>
       <main class="w-full p-16 mx-auto">
-        <DashboardItem />
+        <router-view />
       </main>
     </div>
   </div>
@@ -95,7 +95,6 @@ import {
   LogoutIcon,
 } from "@heroicons/vue/outline";
 import LangSwitcher from "../components/adminPanel/LangSwitcher.vue";
-import DashboardItem from "../adminPanel/DashboardItem.vue";
 
 export default {
   components: {
@@ -105,7 +104,6 @@ export default {
     BookOpenIcon,
     LangSwitcher,
     LogoutIcon,
-    DashboardItem,
   },
 };
 </script>
