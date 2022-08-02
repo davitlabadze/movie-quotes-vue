@@ -55,6 +55,16 @@ const routes = [
         name: "admin.quotes",
         component: () => import("../adminPanel/quotes/ViewQuotes.vue"),
       },
+      {
+        path: "quote-add",
+        name: "admin.quoteAdd",
+        component: () => import("../adminPanel/quotes/AddQuote.vue"),
+      },
+      {
+        path: "quote-edit",
+        name: "admin.quoteEdit",
+        component: () => import("../adminPanel/quotes/EditQuote.vue"),
+      },
     ],
   },
 ];
