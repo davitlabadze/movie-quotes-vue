@@ -62,6 +62,7 @@
         >
           <div class="flex flex-1 mt-4 font-bold text-black"></div>
           <div class="flex items-center md:ml-6">
+            <DarkMode />
             <LangSwitcher />
             <div class="relative ml-3">
               <div>
@@ -95,6 +96,7 @@ import {
   LogoutIcon,
 } from "@heroicons/vue/outline";
 import LangSwitcher from "../components/adminPanel/LangSwitcher.vue";
+import DarkMode from "../components/DarkMode.vue";
 
 export default {
   components: {
@@ -104,6 +106,7 @@ export default {
     BookOpenIcon,
     LangSwitcher,
     LogoutIcon,
+    DarkMode,
   },
 };
 </script>
