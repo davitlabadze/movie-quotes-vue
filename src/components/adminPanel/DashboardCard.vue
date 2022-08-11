@@ -11,8 +11,10 @@
     <div class="flex-1 min-w-0">
       <router-link :to="path">
         <h3 class="focus:outline-none">
-          <p class="text-sm font-medium text-white">{{ name }}</p>
-          <p class="text-sm text-white truncate">total: {{ data }}</p>
+          <p class="text-sm font-medium text-white">{{ $t(name) }}</p>
+          <p class="text-sm text-white truncate">
+            {{ $t("total") }}: {{ $t(data) }}
+          </p>
         </h3>
       </router-link>
     </div>

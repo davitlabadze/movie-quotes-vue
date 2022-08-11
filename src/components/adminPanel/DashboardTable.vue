@@ -4,7 +4,7 @@
       class="flex-shrink-0 w-6 h-6 mr-3 text-black dark:text-slate-600"
     />
 
-    <p class="dark:text-slate-600">Recent Movies quotes</p>
+    <p class="dark:text-slate-600">{{ $t("Recent Movies quotes") }}</p>
   </div>
   <table
     class="w-full text-center divide-y divide-gray-200 rounded-lg shadow-md dark:divide-slate-700"
@@ -21,27 +21,27 @@
         <th
           class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
         >
-          movie english
+          {{ $t("Movie_en") }}
         </th>
         <th
           class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
         >
-          movie georiga
+          {{ $t("Movie_ka") }}
         </th>
         <th
           class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
         >
-          quote english
+          {{ $t("Quote_en") }}
         </th>
         <th
           class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
         >
-          quote georgia
+          {{ $t("Quote_ka") }}
         </th>
         <th
           class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
         >
-          image
+          {{ $t("image") }}
         </th>
       </tr>
     </thead>

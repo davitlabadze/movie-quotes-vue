@@ -31,33 +31,33 @@
           <th
             class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
           >
-            movie english
+            {{ $t("Movie_en") }}
           </th>
           <th
             class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
           >
-            movie georiga
+            {{ $t("Movie_ka") }}
           </th>
           <th
             class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
           >
-            quote english
+            {{ $t("Quote_en") }}
           </th>
           <th
             class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
           >
-            quote georiga
+            {{ $t("Quote_ka") }}
           </th>
           <th
             class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
           >
-            image
+            {{ $t("image") }}
           </th>
 
           <th
             class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
           >
-            actions
+            {{ $t("action") }}
           </th>
         </tr>
       </thead>

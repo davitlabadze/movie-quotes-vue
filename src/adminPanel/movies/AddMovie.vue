@@ -13,7 +13,7 @@
           class="block mb-2 text-xs font-bold text-gray-700 uppercase"
           htmlFor="movie_en"
         >
-          movie english
+          {{ $t("Movie_en") }}
         </label>
         <input
           class="w-full p-2 border border-gray-400 rounded outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-600"
@@ -28,7 +28,7 @@
           class="block mb-2 text-xs font-bold text-gray-700 uppercase"
           htmlFor="movie_ka"
         >
-          Movie georiga
+          {{ $t("Movie_ka") }}
         </label>
         <input
           class="w-full p-2 border border-gray-400 rounded outline-none dark:bg-slate-800 dark:text-slate-600 dark:border-slate-700"

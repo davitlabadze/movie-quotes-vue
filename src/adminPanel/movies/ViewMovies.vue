@@ -31,18 +31,18 @@
           <th
             class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
           >
-            movie english
+            {{ $t("Movie_en") }}
           </th>
           <th
             class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
           >
-            movie georiga
+            {{ $t("Movie_ka") }}
           </th>
 
           <th
             class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
           >
-            actions
+            {{ $t("action") }}
           </th>
         </tr>
       </thead>

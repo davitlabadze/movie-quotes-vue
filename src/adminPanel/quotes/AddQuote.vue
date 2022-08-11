@@ -17,7 +17,7 @@
               <p
                 class="text-sm tracking-wider text-gray-400 pt-28 group-hover:text-gray-600"
               >
-                Attach a file
+                {{ $t("Attach a file") }}
               </p>
             </div>
             <img
@@ -37,7 +37,7 @@
           class="block mb-2 text-xs font-bold text-gray-700 uppercase"
           htmlFor="quote-en"
         >
-          quote english
+          {{ $t("Quote_en") }}
         </label>
         <input
           class="w-full p-2 border border-gray-400 rounded outline-none dark:bg-slate-800 dark:text-slate-600 dark:border-slate-700"
@@ -51,7 +51,7 @@
           class="block mb-2 text-xs font-bold text-gray-700 uppercase"
           htmlFor="quote-ka"
         >
-          quote georgia
+          {{ $t("Quote_ka") }}
         </label>
         <input
           class="w-full p-2 border border-gray-400 rounded outline-none dark:bg-slate-800 dark:text-slate-600 dark:border-slate-700"
@@ -61,7 +61,7 @@
         />
       </div>
       <label class="block mb-2 text-xs font-bold text-gray-700 uppercase">
-        Choose a movie
+        {{ $t("Choose a movie") }}
       </label>
       <div class="mb-6">
         <select

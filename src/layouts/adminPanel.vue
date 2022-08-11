@@ -5,21 +5,21 @@
     >
       <div class="flex flex-col flex-1 min-h-0">
         <div class="flex items-center h-16 px-4 shadow-sm bg-slate-800">
-          <h1 class="text-xl font-bold text-white">Adminpanel</h1>
+          <h1 class="text-xl font-bold text-white">{{ $t("Dashboard") }}</h1>
         </div>
         <div class="flex flex-col flex-1 overflow-hidden">
           <nav class="flex-1 px-2 py-4 space-y-1">
             <div
               class="flex items-center px-2 py-2 text-sm font-medium text-gray-900 dark:text-slate-600"
             >
-              CORE
+              {{ $t("CORE") }}
             </div>
             <router-link :to="{ name: 'admin.dashboard' }">
               <h1
                 class="flex items-center px-2 py-2 text-sm font-medium text-gray-800 bg-gray-300 rounded-md shadow-lg shadow-gray-500/50 dark:bg-slate-800 dark:shadow-none dark:text-blue-700"
               >
                 <TemplateIcon class="w-5 h-5 mr-3" />
-                Dashboard
+                {{ $t("Dashboard") }}
               </h1></router-link
             >
             <router-link to="/"
@@ -27,20 +27,20 @@
                 class="flex items-center px-2 py-2 text-sm font-medium text-gray-700 rounded-md hover:shadow-lg shadow-gray-500/50 hover:text-black dark:hover:bg-slate-800 dark:shadow-none dark:hover:text-slate-600"
               >
                 <GlobeAltIcon class="w-5 h-5 mr-3" />
-                View Website
+                {{ $t("View Website") }}
               </h1></router-link
             >
             <div
               class="flex items-center px-2 py-2 text-sm font-medium text-gray-900 dark:text-slate-600"
             >
-              INTERFACE
+              {{ $t("INTERFACE") }}
             </div>
             <router-link :to="{ name: 'admin.movies' }">
               <h1
                 class="flex items-center px-2 py-2 text-sm font-medium text-gray-700 rounded-md hover:shadow-lg shadow-gray-500/50 hover:text-black dark:hover:bg-slate-800 dark:shadow-none dark:hover:text-slate-600"
               >
                 <FilmIcon class="w-5 h-5 mr-3" />
-                Movies
+                {{ $t("Movies") }}
               </h1></router-link
             >
             <router-link :to="{ name: 'admin.quotes' }">
@@ -48,7 +48,7 @@
                 class="flex items-center px-2 py-2 text-sm font-medium text-gray-700 rounded-md hover:shadow-lg shadow-gray-500/50 hover:text-black dark:hover:bg-slate-800 dark:shadow-none dark:hover:text-slate-600"
               >
                 <BookOpenIcon class="w-5 h-5 mr-3" />
-                Quotes
+                {{ $t("Quotes") }}
               </h1></router-link
             >
           </nav>
@@ -73,7 +73,7 @@
                   <LogoutIcon
                     class="flex-shrink-0 w-6 h-6 text-gray-500 dark:text-slate-700"
                   />
-                  Log Out
+                  {{ $t("Log Out") }}
                 </button>
               </div>
             </div>
