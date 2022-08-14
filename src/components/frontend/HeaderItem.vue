@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'fixed top-0 w-full h-32 bg-black': header === true }">
+  <div :class="{ 'sticky top-0 w-full h-32 bg-black': header === true }">
     <BackButton />
     <MovieTitle />
   </div>
