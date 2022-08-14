@@ -13,7 +13,7 @@
         <h3 class="focus:outline-none">
           <p class="text-sm font-medium text-white">{{ $t(name) }}</p>
           <p class="text-sm text-white truncate">
-            {{ $t("total") }}: {{ $t(data) }}
+            {{ $t("total") }}: {{ data }}
           </p>
         </h3>
       </router-link>

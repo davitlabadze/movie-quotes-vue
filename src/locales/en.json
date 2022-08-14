@@ -54,5 +54,8 @@
     "network_error": "Network Error",
     "method_not_allowed":"Method Not Allowed",
 
-    "Choose a movie": "Choose a movie"
+    "Choose a movie": "Choose a movie",
+
+    "id":"id"
+
 }

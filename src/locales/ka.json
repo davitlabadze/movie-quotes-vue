@@ -54,6 +54,10 @@
     "successfully_Deleted!":"წარმატებით წაიშალა!",
     "Choose a movie": "აირჩიე ფილმი",
     "network_error":"ქსელის შეცდომა",
-    "method_not_allowed":"მეთოდი დაუშვებელია"
+    "method_not_allowed":"მეთოდი დაუშვებელია",
+
+    "id":"id"
+
+    
 
 }

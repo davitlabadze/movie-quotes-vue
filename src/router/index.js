@@ -33,7 +33,7 @@ const routes = [
       {
         path: "dashboard",
         name: "admin.dashboard",
-        component: () => import("../adminPanel/DashboardItem.vue"),
+        component: () => import("../adminPanel/TheDashboard.vue"),
       },
       {
         path: "movies",
