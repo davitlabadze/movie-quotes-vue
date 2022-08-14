@@ -2,7 +2,7 @@
   <div>
     <button
       class="relative flex border-red-800 rounded-md dark:text-white"
-      @click="hover = true"
+      @click="hover = !hover"
     >
       <TranslateIcon class="w-5 h-5" />
       <ChevronDownIcon class="w-5 h-5" />
