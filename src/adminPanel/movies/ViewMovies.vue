@@ -19,33 +19,8 @@
     <table
       class="w-full text-center divide-y divide-gray-200 shadow-md dark:divide-slate-700"
     >
-      <thead
-        class="flex w-full text-white rounded-t-lg bg-gray-50 dark:bg-slate-800"
-      >
-        <tr class="flex w-full mb-2">
-          <th
-            class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
-          >
-            id
-          </th>
-          <th
-            class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
-          >
-            {{ $t("Movie_en") }}
-          </th>
-          <th
-            class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
-          >
-            {{ $t("Movie_ka") }}
-          </th>
+      <TableThead :titles="['id', 'Movie_en', 'Movie_ka', 'action']" />
 
-          <th
-            class="w-1/4 p-2 text-xs text-gray-500 uppercase dark:text-slate-600"
-          >
-            {{ $t("action") }}
-          </th>
-        </tr>
-      </thead>
       <tbody
         class="flex flex-col items-center w-full overflow-x-hidden overflow-y-scroll bg-white dark:bg-slate-800 rounded-b-md h-96"
       >
@@ -85,6 +60,7 @@ import {
   PlusIcon,
 } from "@heroicons/vue/outline";
 import ActionItem from "../../components/adminPanel/ActionItem.vue";
+import TableThead from "../../components/adminPanel/TableThead.vue";
 export default {
   data() {
     return {
@@ -92,7 +68,7 @@ export default {
       PlusIcon,
     };
   },
-  components: { TrashIcon, PencilIcon, ActionItem },
+  components: { TrashIcon, PencilIcon, ActionItem, TableThead },
 };
 </script>
 
