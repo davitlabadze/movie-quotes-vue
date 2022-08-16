@@ -1,21 +1,45 @@
 <template>
   <div class="flex justify-center py-32">
-    <div class="rounded-lg">
+    <div v-if="data" class="rounded-lg">
       <div class="flex justify-center h-96">
         <img
           class="object-cover h-full rounded-lg"
-          src="https://lh3.googleusercontent.com/g-W0vwcMvALYROKIaS0t0CQrVKZ6cqqFiibzQ0B9-TLkmEkBmYDyBCgl9RvYDStP-2lzvRBqr6v5wxgaoVlujwEP=w640-h400-e365-rj-sc0x00ffffff"
+          :src="image + data.thumbnail"
           alt="logo"
         />
       </div>
       <h1 class="py-12 text-5xl text-center text-white">
-        Say hello to my little friend!
+        {{ data.quote[this.$i18n.locale] }}
       </h1>
       <div class="py-2 text-center text-white">
         <router-link :to="{ name: 'home.movieQuote' }">
-          <h1 class="font-sans text-5xl underline">kukaracha</h1></router-link
-        >
+          <h1 class="font-sans text-5xl underline">
+            {{ data.movie.movie[this.$i18n.locale] }}
+          </h1>
+        </router-link>
       </div>
+    </div>
+    <div v-else>
+      <the-spiner />
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref } from "vue";
+import QuoteAPI from "../services/QuoteAPI";
+import TheSpiner from "../components/frontend/TheSpiner.vue";
+const image = import.meta.env.VITE_APP_BASE_URL;
+
+const data = ref(null);
+
+const loadQuote = async () => {
+  try {
+    const response = await QuoteAPI.getQuote();
+    data.value = response.data.singleQuote;
+  } catch (err) {
+    console.log(err);
+  }
+};
+loadQuote();
+</script>
