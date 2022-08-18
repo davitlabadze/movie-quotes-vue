@@ -1,7 +1,7 @@
 <template>
   <div :class="{ 'sticky top-0 w-full h-32 bg-black': header === true }">
     <BackButton />
-    <MovieTitle />
+    <MovieTitle :title="title" />
   </div>
 </template>
 
@@ -9,6 +9,11 @@
 import { ref } from "vue";
 import BackButton from "./BackButton.vue";
 import MovieTitle from "./MovieTitle.vue";
+
+defineProps({
+  title: String,
+});
+
 const header = ref(false);
 const setHeader = (state) => {
   header.value = state;

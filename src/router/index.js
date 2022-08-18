@@ -12,7 +12,7 @@ const routes = [
         component: () => import("../views/singleQuote.vue"),
       },
       {
-        path: "movie-quote",
+        path: "movie-quote/:movieId",
         name: "home.movieQuote",
         component: () => import("../views/movieQuotes.vue"),
       },

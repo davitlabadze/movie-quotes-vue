@@ -12,7 +12,9 @@
         {{ data.quote[this.$i18n.locale] }}
       </h1>
       <div class="py-2 text-center text-white">
-        <router-link :to="{ name: 'home.movieQuote' }">
+        <router-link
+          :to="{ name: 'home.movieQuote', params: { movieId: data.movie_id } }"
+        >
           <h1 class="font-sans text-5xl underline">
             {{ data.movie.movie[this.$i18n.locale] }}
           </h1>
