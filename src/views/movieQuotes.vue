@@ -15,7 +15,7 @@
         />
         <div class="px-6 py-4 bg-white rounded-b-lg">
           <div class="mb-2 text-xl font-bold text-center">
-            {{ quote[this.$i18n.locale] }}
+            {{ quote.quote[this.$i18n.locale] }}
           </div>
         </div>
       </div>
