@@ -28,8 +28,8 @@
 <script setup>
 import Header from "../components/frontend/TheHeader.vue";
 import { ref } from "vue";
-import QuoteAPI from "../services/QuoteAPI";
 import TheSpiner from "../components/frontend/TheSpiner.vue";
+import getDataAPI from "../services/getDataAPI";
 const image = import.meta.env.VITE_APP_BASE_URL;
 import { useRoute } from "vue-router";
 const route = useRoute();
@@ -39,7 +39,7 @@ const movie = ref(null);
 
 const loadQuote = async () => {
   try {
-    const response = await QuoteAPI.getMovieQuotes(route.params.movieId);
+    const response = await getDataAPI.getMovieQuotes(route.params.movieId);
 
     movie.value = response.data.movie;
     quotes.value = response.data.quotes;

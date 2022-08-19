@@ -29,15 +29,15 @@
 
 <script setup>
 import { ref } from "vue";
-import QuoteAPI from "../services/QuoteAPI";
 import TheSpiner from "../components/frontend/TheSpiner.vue";
+import getDataAPI from "../services/getDataAPI";
 const image = import.meta.env.VITE_APP_BASE_URL;
 
 const data = ref(null);
 
 const loadQuote = async () => {
   try {
-    const response = await QuoteAPI.getQuote();
+    const response = await getDataAPI.getQuote();
     data.value = response.data.singleQuote;
   } catch (err) {
     console.log(err);
