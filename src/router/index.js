@@ -19,7 +19,7 @@ const routes = [
       {
         path: "login",
         name: "home.login",
-        component: () => import("../auth/LoginItem.vue"),
+        component: () => import("../auth/TheLogin.vue"),
       },
     ],
   },
@@ -29,16 +29,19 @@ const routes = [
     name: "admin",
     redirect: "/admin/dashboard",
     component: () => import("../layouts/adminPanel.vue"),
+    meta: { isAuth: true },
     children: [
       {
         path: "dashboard",
         name: "admin.dashboard",
         component: () => import("../adminPanel/TheDashboard.vue"),
+        meta: { isAuth: true },
       },
       {
         path: "movies",
         name: "admin.movies",
         component: () => import("../adminPanel/movies/ViewMovies.vue"),
+        meta: { isAuth: true },
       },
       {
         path: "movie-add",
@@ -71,6 +74,16 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
+});
+router.beforeEach((to, from, next) => {
+  if (to.meta.admin) {
+    const token = localStorage.getItem("token");
+    const user = JSON.parse(token);
+    if (!user) {
+      next("/login");
+    }
+  }
+  next();
 });
 
 export default router;
