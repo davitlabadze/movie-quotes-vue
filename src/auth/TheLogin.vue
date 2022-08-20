@@ -52,47 +52,25 @@
 </template>
 
 <script setup>
-// import { ref } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
-import axios from "axios";
 import BackButton from "../components/frontend/BackButton.vue";
-// import LoginAPI from "../services/LoginAPI";
+import LoginAPI from "../services/LoginAPI";
 
 // #issues  change ref form input value
 const email = "admin@admin.ge";
 const password = "admin";
 
 const handleLogin = async () => {
-  // LoginAPI.Authorization(email, password);
-  // localStorage.setItem("token");
   try {
-    await axios
-      .post("http://127.0.0.1:8000/api/login", {
-        email,
-        password,
-      })
-      .then((res) => {
-        console.log(JSON.stringify(res?.data));
-        // alert
-        const checkUser = res?.data.user;
-        if (checkUser) {
-          localStorage.setItem("token", res.data.token);
-          // const token = res?.data.token;
-          // router.push({ name: "dashboard" });
-          // router.push("/admin").catch(() => {});
-          router.push({ name: "admin.dashboard" });
-
-          // navigate("/adminPanel/dashboard");
-        } else {
-          // setErrMessage(res.data.status);
-          console.log(res.data.status);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        // setErrMessage("404");
-      });
+    const response = await LoginAPI.Authorization(email, password);
+    const checkUser = response?.data.user;
+    if (checkUser) {
+      localStorage.setItem("token", response.data.token);
+      router.push({ name: "admin.dashboard" });
+    } else {
+      console.log(response.data.status);
+    }
   } catch (err) {
     console.error(err);
   }
