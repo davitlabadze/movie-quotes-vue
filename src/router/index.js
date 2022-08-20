@@ -47,6 +47,7 @@ const routes = [
         path: "movie-add",
         name: "admin.movieAdd",
         component: () => import("../adminPanel/movies/AddMovie.vue"),
+        meta: { isAuth: true },
       },
       {
         path: "movie-edit",
@@ -57,16 +58,19 @@ const routes = [
         path: "quotes",
         name: "admin.quotes",
         component: () => import("../adminPanel/quotes/ViewQuotes.vue"),
+        meta: { isAuth: true },
       },
       {
         path: "quote-add",
         name: "admin.quoteAdd",
         component: () => import("../adminPanel/quotes/AddQuote.vue"),
+        meta: { isAuth: true },
       },
       {
         path: "quote-edit",
         name: "admin.quoteEdit",
         component: () => import("../adminPanel/quotes/EditQuote.vue"),
+        meta: { isAuth: true },
       },
     ],
   },
@@ -76,10 +80,9 @@ const router = createRouter({
   routes,
 });
 router.beforeEach((to, from, next) => {
-  if (to.meta.admin) {
+  if (to.meta.isAuth) {
     const token = localStorage.getItem("token");
-    const user = JSON.parse(token);
-    if (!user) {
+    if (!token) {
       next("/login");
     }
   }
