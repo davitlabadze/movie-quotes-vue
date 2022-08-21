@@ -24,13 +24,19 @@
       <tbody
         class="flex flex-col items-center w-full overflow-x-hidden overflow-y-scroll bg-white dark:bg-slate-800 rounded-b-md h-96"
       >
-        <tr class="flex w-full bg-white dark:bg-slate-800">
-          <td class="w-1/4 p-4 px-6 text-gray-900 dark:text-slate-600">1</td>
-          <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-            kukaracha
+        <tr
+          v-for="movie in movies"
+          :key="movie.id"
+          class="flex w-full bg-white dark:bg-slate-800"
+        >
+          <td class="w-1/4 p-4 px-6 text-gray-900 dark:text-slate-600">
+            {{ movie.id }}
           </td>
           <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-            კუკარაჩა
+            {{ movie.movie.en }}
+          </td>
+          <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
+            {{ movie.movie.ka }}
           </td>
           <td class="w-1/4 p-4 px-6 text-center">
             <router-link :to="{ name: 'admin.movieEdit' }">
@@ -52,24 +58,27 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   TrashIcon,
   PencilIcon,
   TableIcon,
   PlusIcon,
 } from "@heroicons/vue/outline";
+import { ref } from "vue";
 import ActionItem from "../../components/adminPanel/ActionItem.vue";
 import TableThead from "../../components/adminPanel/TableThead.vue";
-export default {
-  data() {
-    return {
-      TableIcon,
-      PlusIcon,
-    };
-  },
-  components: { TrashIcon, PencilIcon, ActionItem, TableThead },
-};
-</script>
+import MovieAPI from "../../services/MovieAPI";
 
-<style></style>
+const movies = ref(null);
+
+const loadMovies = async () => {
+  try {
+    const response = await MovieAPI.getMovies();
+    movies.value = response.data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+loadMovies();
+</script>
