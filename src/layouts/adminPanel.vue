@@ -67,6 +67,7 @@
             <div class="relative ml-3">
               <div>
                 <button
+                  @click="handleLogout"
                   type="button"
                   class="flex items-center px-2 py-2 text-sm font-medium text-gray-800 bg-gray-300 rounded-md hover:bg-gray-400 hover:text-white dark:bg-slate-900 dark:text-slate-700 dark:hover:text-slate-600"
                 >
@@ -87,7 +88,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   TemplateIcon,
   GlobeAltIcon,
@@ -98,17 +99,19 @@ import {
 import LangSwitcher from "../components/adminPanel/LangSwitcher.vue";
 import DarkMode from "../components/DarkMode.vue";
 
-export default {
-  components: {
-    TemplateIcon,
-    GlobeAltIcon,
-    FilmIcon,
-    BookOpenIcon,
-    LangSwitcher,
-    LogoutIcon,
-    DarkMode,
-  },
+import { useRouter } from "vue-router";
+import AuthAPI from "../services/AuthAPI";
+const router = useRouter();
+const handleLogout = async () => {
+  try {
+    const response = await AuthAPI.Logout();
+
+    if (response.data.status === 200) {
+      localStorage.removeItem("token");
+      router.push({ name: "home.singleQuote" });
+    }
+  } catch (err) {
+    console.error(err);
+  }
 };
 </script>
-
-<style></style>
