@@ -1,7 +1,7 @@
 <template>
   <ActionItem
     title="Add Movie"
-    path="movies"
+    path="admin.movies"
     action="All Movies"
     :icon="TableIcon"
     :btnIcon="EyeIcon"

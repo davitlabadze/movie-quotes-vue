@@ -12,15 +12,19 @@
       <div class="w-6 h-6">
         <component :is="btnIcon" />
       </div>
-      <router-link :to="path">{{ $t(action) }}</router-link>
+      <router-link :to="{ name: path }">{{ $t(action) }}</router-link>
     </button>
   </div>
 </template>
 
-<script>
-export default {
-  props: ["icon", "btnIcon", "title", "path", "action"],
-};
+<script setup>
+defineProps({
+  icon: Function,
+  btnIcon: Function,
+  title: String,
+  path: String,
+  action: String,
+});
 </script>
 
 <style></style>

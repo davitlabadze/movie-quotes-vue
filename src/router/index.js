@@ -50,7 +50,7 @@ const routes = [
         meta: { isAuth: true },
       },
       {
-        path: "movie-edit",
+        path: "movie-edit/:movieId",
         name: "admin.movieEdit",
         component: () => import("../adminPanel/movies/EditMovie.vue"),
       },
