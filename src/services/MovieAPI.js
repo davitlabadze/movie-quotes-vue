@@ -7,4 +7,7 @@ export default {
   deleteMovie(movieId) {
     return API().delete(`movies/${movieId}`);
   },
+  createMovie(movie_en, movie_ka) {
+    return API().post("movies/create", { movie_en, movie_ka });
+  },
 };
