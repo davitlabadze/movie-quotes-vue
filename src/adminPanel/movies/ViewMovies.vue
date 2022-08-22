@@ -46,7 +46,7 @@
                 />
               </button>
             </router-link>
-            <button class="ml-2">
+            <button class="ml-2" @click="deleteMovie(movie.id)">
               <TrashIcon
                 class="w-6 h-6 text-slate-300 hover:text-slate-500 dark:text-slate-700 hover:dark:text-slate-500"
               />
@@ -81,4 +81,13 @@ const loadMovies = async () => {
   }
 };
 loadMovies();
+
+const deleteMovie = async (movieId) => {
+  try {
+    await MovieAPI.deleteMovie(movieId);
+    loadMovies();
+  } catch (error) {
+    console.log(error);
+  }
+};
 </script>
