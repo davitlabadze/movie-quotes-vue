@@ -108,7 +108,7 @@ const handleLogout = async () => {
 
     if (response.data.status === 200) {
       localStorage.removeItem("token");
-      router.push({ name: "home.singleQuote" });
+      router.replace({ name: "home.singleQuote" });
     }
   } catch (err) {
     console.error(err);
