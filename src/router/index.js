@@ -67,7 +67,7 @@ const routes = [
         meta: { isAuth: true },
       },
       {
-        path: "quote-edit",
+        path: "quote-edit/:quoteId",
         name: "admin.quoteEdit",
         component: () => import("../adminPanel/quotes/EditQuote.vue"),
         meta: { isAuth: true },

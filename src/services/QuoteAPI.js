@@ -13,4 +13,10 @@ export default {
   createQuote(...args) {
     return API().post("quotes/store", ...args);
   },
+  getEditQuote(quoteId) {
+    return API().get(`/quotes/${quoteId}/edit`);
+  },
+  updateQuote(quoteId, ...args) {
+    return API().post(`/quotes/${quoteId}/update`, ...args);
+  },
 };
