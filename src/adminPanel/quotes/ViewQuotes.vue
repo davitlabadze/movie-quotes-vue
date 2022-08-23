@@ -1,7 +1,7 @@
 <template>
   <ActionItem
     title="All Quotes"
-    path="quote-add"
+    path="admin.quoteAdd"
     action="Add Quote"
     :icon="TableIcon"
     :btnIcon="PlusIcon"
@@ -31,27 +31,33 @@
         ]"
       />
       <tbody
+        v-if="quotes"
         class="flex flex-col items-center w-full overflow-x-hidden overflow-y-scroll bg-white dark:bg-slate-800 rounded-b-md h-96"
       >
-        <tr class="flex w-full bg-white dark:bg-slate-800">
-          <td class="w-1/4 p-4 px-6 text-gray-900 dark:text-slate-600">1</td>
-          <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-            kukaracha
+        <tr
+          class="flex w-full bg-white dark:bg-slate-800"
+          v-for="quote in quotes"
+          :key="quote.id"
+        >
+          <td class="w-1/4 p-4 px-6 text-gray-900 dark:text-slate-600">
+            {{ quote.id }}
           </td>
           <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-            კუკარაჩა
+            {{ quote.movie.movie.en }}
           </td>
           <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-            Kukaracha was killed
+            {{ quote.movie.movie.ka }}
           </td>
           <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-            კუკარაჩა მოკლეს
+            {{ quote.quote.en }}
+          </td>
+          <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
+            {{ quote.quote.ka }}
           </td>
           <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
             <img
               class="ml-14"
-              key="{quote.id}"
-              src="https://attachments-cdn.coub.com/coub_storage/coub/simple/cw_timeline_pic/f9253b232a0/4c705da47a3201399d8d2/med_1481141689_image.jpg"
+              :src="image + quote.thumbnail"
               width="64"
               height="64"
               alt="movie img"
@@ -73,28 +79,36 @@
           </td>
         </tr>
       </tbody>
+      <div v-else>
+        <TheSpiner />
+      </div>
     </table>
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   TrashIcon,
   PencilIcon,
   TableIcon,
   PlusIcon,
 } from "@heroicons/vue/outline";
+import { ref } from "vue";
 import ActionItem from "../../components/adminPanel/ActionItem.vue";
 import TableThead from "../../components/adminPanel/TableThead.vue";
-export default {
-  data() {
-    return {
-      TableIcon,
-      PlusIcon,
-    };
-  },
-  components: { TrashIcon, PencilIcon, ActionItem, TableThead },
-};
-</script>
+import QuoteAPI from "../../services/QuoteAPI";
+import TheSpiner from "../../components/frontend/TheSpiner.vue";
+const image = import.meta.env.VITE_APP_BASE_URL;
 
-<style></style>
+const quotes = ref(null);
+const loadQuotes = async () => {
+  try {
+    const response = await QuoteAPI.getQuotes();
+    quotes.value = response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+loadQuotes();
+</script>
