@@ -64,7 +64,9 @@
             />
           </td>
           <td class="w-1/4 p-4 px-6 text-center">
-            <router-link :to="{ name: 'admin.quoteEdit' }">
+            <router-link
+              :to="{ name: 'admin.quoteEdit', params: { quoteId: quote.id } }"
+            >
               <button class="ml-4">
                 <PencilIcon
                   class="w-6 h-6 text-slate-300 hover:text-slate-500 dark:text-slate-700 hover:dark:text-slate-500"
