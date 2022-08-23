@@ -71,7 +71,7 @@
                 />
               </button>
             </router-link>
-            <button>
+            <button class="ml-2" @click="deteleQuote(quote.id)">
               <TrashIcon
                 class="w-6 h-6 text-slate-300 hover:text-slate-500 dark:text-slate-700 hover:dark:text-slate-500"
               />
@@ -111,4 +111,13 @@ const loadQuotes = async () => {
 };
 
 loadQuotes();
+
+const deteleQuote = async (quoteId) => {
+  try {
+    await QuoteAPI.deteleQuote(quoteId);
+    loadQuotes();
+  } catch (error) {
+    console.log(error);
+  }
+};
 </script>

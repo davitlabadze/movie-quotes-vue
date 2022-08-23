@@ -4,6 +4,9 @@ export default {
   getQuotes() {
     return API().get("quotes");
   },
+  deteleQuote(quoteId) {
+    return API().delete(`quotes/${quoteId}`);
+  },
   getMovies() {
     return API().get("quotes/create");
   },
