@@ -7,6 +7,7 @@ export default () => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
+      withCredentials: true,
       "Access-Control-Allow-Origin": "*",
       "X-Requested-With": "XMLHttpRequest",
       Authorization: "Bearer " + token,
