@@ -16,192 +16,30 @@
     <tbody
       class="flex flex-col items-center w-full overflow-x-hidden overflow-y-scroll bg-white rounded-b-lg dark:bg-slate-800 h-96"
     >
-      <tr class="flex w-full bg-white dark:bg-slate-800">
-        <td class="w-1/4 p-4 px-6 text-gray-900 dark:text-slate-600">1</td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie english
+      <tr
+        class="flex w-full bg-white dark:bg-slate-800"
+        v-for="data in quotes"
+        :key="data.quote.id"
+      >
+        <td class="w-1/4 p-4 px-6 text-gray-900 dark:text-slate-600">
+          {{ data.id }}
         </td>
         <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie georgia
+          {{ data.movie.movie.en }}
         </td>
         <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote english
+          {{ data.movie.movie.ka }}
         </td>
         <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote georgia
+          {{ data.quote.en }}
         </td>
         <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          <img
-            class="ml-20"
-            src="https://lh3.googleusercontent.com/g-W0vwcMvALYROKIaS0t0CQrVKZ6cqqFiibzQ0B9-TLkmEkBmYDyBCgl9RvYDStP-2lzvRBqr6v5wxgaoVlujwEP=w640-h400-e365-rj-sc0x00ffffff"
-            width="64"
-            height="64"
-            alt="movie img"
-          />
-        </td>
-      </tr>
-      <tr class="flex w-full bg-white dark:bg-slate-800">
-        <td class="w-1/4 p-4 px-6 text-gray-900 dark:text-slate-600">1</td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie english
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie georgia
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote english
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote georgia
+          {{ data.quote.ka }}
         </td>
         <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
           <img
             class="ml-20"
-            src="https://lh3.googleusercontent.com/g-W0vwcMvALYROKIaS0t0CQrVKZ6cqqFiibzQ0B9-TLkmEkBmYDyBCgl9RvYDStP-2lzvRBqr6v5wxgaoVlujwEP=w640-h400-e365-rj-sc0x00ffffff"
-            width="64"
-            height="64"
-            alt="movie img"
-          />
-        </td>
-      </tr>
-      <tr class="flex w-full bg-white dark:bg-slate-800">
-        <td class="w-1/4 p-4 px-6 text-gray-900 dark:text-slate-600">1</td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie english
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie georgia
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote english
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote georgia
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          <img
-            class="ml-20"
-            src="https://lh3.googleusercontent.com/g-W0vwcMvALYROKIaS0t0CQrVKZ6cqqFiibzQ0B9-TLkmEkBmYDyBCgl9RvYDStP-2lzvRBqr6v5wxgaoVlujwEP=w640-h400-e365-rj-sc0x00ffffff"
-            width="64"
-            height="64"
-            alt="movie img"
-          />
-        </td>
-      </tr>
-      <tr class="flex w-full bg-white dark:bg-slate-800">
-        <td class="w-1/4 p-4 px-6 text-gray-900 dark:text-slate-600">1</td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie english
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie georgia
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote english
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote georgia
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          <img
-            class="ml-20"
-            src="https://lh3.googleusercontent.com/g-W0vwcMvALYROKIaS0t0CQrVKZ6cqqFiibzQ0B9-TLkmEkBmYDyBCgl9RvYDStP-2lzvRBqr6v5wxgaoVlujwEP=w640-h400-e365-rj-sc0x00ffffff"
-            width="64"
-            height="64"
-            alt="movie img"
-          />
-        </td>
-      </tr>
-      <tr class="flex w-full bg-white dark:bg-slate-800">
-        <td class="w-1/4 p-4 px-6 text-gray-900 dark:text-slate-600">1</td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie english
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie georgia
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote english
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote georgia
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          <img
-            class="ml-20"
-            src="https://lh3.googleusercontent.com/g-W0vwcMvALYROKIaS0t0CQrVKZ6cqqFiibzQ0B9-TLkmEkBmYDyBCgl9RvYDStP-2lzvRBqr6v5wxgaoVlujwEP=w640-h400-e365-rj-sc0x00ffffff"
-            width="64"
-            height="64"
-            alt="movie img"
-          />
-        </td>
-      </tr>
-      <tr class="flex w-full bg-white dark:bg-slate-800">
-        <td class="w-1/4 p-4 px-6 text-gray-900 dark:text-slate-600">1</td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie english
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie georgia
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote english
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote georgia
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          <img
-            class="ml-20"
-            src="https://lh3.googleusercontent.com/g-W0vwcMvALYROKIaS0t0CQrVKZ6cqqFiibzQ0B9-TLkmEkBmYDyBCgl9RvYDStP-2lzvRBqr6v5wxgaoVlujwEP=w640-h400-e365-rj-sc0x00ffffff"
-            width="64"
-            height="64"
-            alt="movie img"
-          />
-        </td>
-      </tr>
-      <tr class="flex w-full bg-white dark:bg-slate-800">
-        <td class="w-1/4 p-4 px-6 text-gray-900 dark:text-slate-600">1</td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie english
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie georgia
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote english
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote georgia
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          <img
-            class="ml-20"
-            src="https://lh3.googleusercontent.com/g-W0vwcMvALYROKIaS0t0CQrVKZ6cqqFiibzQ0B9-TLkmEkBmYDyBCgl9RvYDStP-2lzvRBqr6v5wxgaoVlujwEP=w640-h400-e365-rj-sc0x00ffffff"
-            width="64"
-            height="64"
-            alt="movie img"
-          />
-        </td>
-      </tr>
-      <tr class="flex w-full bg-white dark:bg-slate-800">
-        <td class="w-1/4 p-4 px-6 text-gray-900 dark:text-slate-600">1</td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie english
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          movie georgia
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote english
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          quote georgia
-        </td>
-        <td class="w-1/4 p-4 px-6 text-gray-500 dark:text-slate-600">
-          <img
-            class="ml-20"
-            src="https://lh3.googleusercontent.com/g-W0vwcMvALYROKIaS0t0CQrVKZ6cqqFiibzQ0B9-TLkmEkBmYDyBCgl9RvYDStP-2lzvRBqr6v5wxgaoVlujwEP=w640-h400-e365-rj-sc0x00ffffff"
+            :src="image + data.thumbnail"
             width="64"
             height="64"
             alt="movie img"
@@ -212,15 +50,11 @@
   </table>
 </template>
 
-<script>
+<script setup>
 import { ClipboardListIcon } from "@heroicons/vue/outline";
 import TableThead from "./TableThead.vue";
-export default {
-  components: {
-    ClipboardListIcon,
-    TableThead,
-  },
-};
+const image = import.meta.env.VITE_APP_BASE_URL;
+defineProps({
+  quotes: Object,
+});
 </script>
-
-<style></style>

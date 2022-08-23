@@ -21,10 +21,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ["color", "icon", "data", "path", "name"],
-};
+<script setup>
+defineProps({
+  color: String,
+  icon: Function,
+  data: Number,
+  path: String,
+  name: String,
+});
 </script>
-
-<style></style>
