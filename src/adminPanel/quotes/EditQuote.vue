@@ -27,11 +27,23 @@
               </p>
             </div>
             <img
+              v-if="imageUrl === null"
               class="absolute w-full h-full rounded"
               :src="image + quoteEdit.thumbnail"
               alt=""
             />
-            <Field name="image" type="file" class="opacity-0" />
+            <img
+              v-if="imageUrl !== null"
+              class="absolute w-full h-full rounded"
+              :src="imageUrl"
+              alt="image"
+            />
+            <Field
+              name="image"
+              type="file"
+              class="opacity-0"
+              @change="onFilePicked"
+            />
           </label>
         </div>
       </div>
@@ -82,15 +94,11 @@
           as="select"
           class="dark:bg-slate-800 dark:text-slate-600 dark:border-slate-700 form-select block px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
           name="movie_id"
-          rules="required"
         >
           <option v-for="movie in movies" :key="movie.id" :value="movie.id">
             {{ movie.movie[this.$i18n.locale] }}
           </option>
         </Field>
-        <p className="mt-2 text-xs text-red-500">
-          <ErrorMessage name="movie_id" />
-        </p>
       </div>
 
       <div class="flex mb-6 w-min">
@@ -157,5 +165,19 @@ const updateQuote = async (data) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+const imageUrl = ref(null);
+const onFilePicked = (event) => {
+  const files = event.target.files;
+  let filename = files[0].name;
+  if (filename.lastIndexOf(".") <= 0) {
+    return alert("please add a valid file!");
+  }
+  const fileReader = new FileReader();
+  fileReader.addEventListener("load", () => {
+    imageUrl.value = fileReader.result;
+  });
+  fileReader.readAsDataURL(files[0]);
 };
 </script>
