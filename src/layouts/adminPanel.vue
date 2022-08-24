@@ -14,43 +14,33 @@
             >
               {{ $t("CORE") }}
             </div>
-            <router-link :to="{ name: 'admin.dashboard' }">
-              <h1
-                class="flex items-center px-2 py-2 text-sm font-medium text-gray-800 bg-gray-300 rounded-md shadow-lg shadow-gray-500/50 dark:bg-slate-800 dark:shadow-none dark:text-blue-700"
-              >
-                <TemplateIcon class="w-5 h-5 mr-3" />
-                {{ $t("Dashboard") }}
-              </h1></router-link
-            >
-            <router-link to="/"
-              ><h1
-                class="flex items-center px-2 py-2 text-sm font-medium text-gray-700 rounded-md hover:shadow-lg shadow-gray-500/50 hover:text-black dark:hover:bg-slate-800 dark:shadow-none dark:hover:text-slate-600"
-              >
-                <GlobeAltIcon class="w-5 h-5 mr-3" />
-                {{ $t("View Website") }}
-              </h1></router-link
-            >
+
+            <TheNavigation
+              path="admin.dashboard"
+              title="Dashboard"
+              :icon="TemplateIcon"
+            />
+
+            <TheNavigation
+              path="home.singleQuote"
+              title="View Website"
+              :icon="GlobeAltIcon"
+            />
             <div
               class="flex items-center px-2 py-2 text-sm font-medium text-gray-900 dark:text-slate-600"
             >
               {{ $t("INTERFACE") }}
             </div>
-            <router-link :to="{ name: 'admin.movies' }">
-              <h1
-                class="flex items-center px-2 py-2 text-sm font-medium text-gray-700 rounded-md hover:shadow-lg shadow-gray-500/50 hover:text-black dark:hover:bg-slate-800 dark:shadow-none dark:hover:text-slate-600"
-              >
-                <FilmIcon class="w-5 h-5 mr-3" />
-                {{ $t("Movies") }}
-              </h1></router-link
-            >
-            <router-link :to="{ name: 'admin.quotes' }">
-              <h1
-                class="flex items-center px-2 py-2 text-sm font-medium text-gray-700 rounded-md hover:shadow-lg shadow-gray-500/50 hover:text-black dark:hover:bg-slate-800 dark:shadow-none dark:hover:text-slate-600"
-              >
-                <BookOpenIcon class="w-5 h-5 mr-3" />
-                {{ $t("Quotes") }}
-              </h1></router-link
-            >
+            <TheNavigation
+              path="admin.movies"
+              title="Movies"
+              :icon="FilmIcon"
+            />
+            <TheNavigation
+              path="admin.quotes"
+              title="Quotes"
+              :icon="BookOpenIcon"
+            />
           </nav>
         </div>
       </div>
@@ -101,6 +91,7 @@ import DarkMode from "../components/DarkMode.vue";
 
 import { useRouter } from "vue-router";
 import AuthAPI from "../services/AuthAPI";
+import TheNavigation from "../components/adminPanel/TheNavigation.vue";
 const router = useRouter();
 const handleLogout = async () => {
   try {
