@@ -81,6 +81,9 @@
             </button>
           </td>
         </tr>
+        <tr class="mt-32" v-if="input && !filteredList().length">
+          <td>{{ $t("No_results_found!") }}</td>
+        </tr>
       </tbody>
       <div v-else>
         <TheSpiner />

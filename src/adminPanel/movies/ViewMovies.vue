@@ -59,11 +59,10 @@
             </button>
           </td>
         </tr>
+        <tr class="mt-32" v-if="input && !filteredList().length">
+          <td>{{ $t("No_results_found!") }}</td>
+        </tr>
       </tbody>
-
-      <div class="item error" v-if="input && !filteredList().length">
-        <p>No results found!</p>
-      </div>
     </table>
   </div>
 </template>
