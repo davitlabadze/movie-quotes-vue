@@ -11,6 +11,7 @@
       name="search"
       type="search"
       id="search"
+      v-model="input"
       placeholder="Search by movie or quote"
       class="p-2 px-12 mb-4 bg-no-repeat rounded-lg shadow-sm outline-none dark:placeholder-gray-600 dark:bg-slate-800 dark:text-slate-500 bg bg-left-1 bg-search"
     />
@@ -36,7 +37,7 @@
       >
         <tr
           class="flex w-full bg-white dark:bg-slate-800"
-          v-for="quote in quotes"
+          v-for="quote in filteredList()"
           :key="quote.id"
         >
           <td class="w-1/4 p-4 px-6 text-gray-900 dark:text-slate-600">
@@ -102,7 +103,7 @@ import QuoteAPI from "../../services/QuoteAPI";
 import TheSpiner from "../../components/frontend/TheSpiner.vue";
 const image = import.meta.env.VITE_APP_BASE_URL;
 
-const quotes = ref(null);
+const quotes = ref([]);
 const loadQuotes = async () => {
   try {
     const response = await QuoteAPI.getQuotes();
@@ -121,5 +122,16 @@ const deteleQuote = async (quoteId) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+const input = ref("");
+
+const filteredList = () => {
+  const lang = localStorage.getItem("lang");
+  return quotes.value.filter(
+    (quote) =>
+      quote.quote[lang].toLowerCase().includes(input.value.toLowerCase()) ||
+      quote.movie.movie[lang].toLowerCase().includes(input.value.toLowerCase())
+  );
 };
 </script>

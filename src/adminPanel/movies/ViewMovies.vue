@@ -11,6 +11,7 @@
       name="search"
       type="search"
       id="search"
+      v-model="input"
       placeholder="Search by movie"
       class="p-2 px-12 mb-4 bg-no-repeat rounded-lg shadow-sm outline-none dark:placeholder-gray-600 dark:bg-slate-800 dark:text-slate-500 bg bg-left-1 bg-search"
     />
@@ -25,8 +26,8 @@
         class="flex flex-col items-center w-full overflow-x-hidden overflow-y-scroll bg-white dark:bg-slate-800 rounded-b-md h-96"
       >
         <tr
-          v-for="movie in movies"
-          :key="movie.id"
+          v-for="movie in filteredList()"
+          :key="movie"
           class="flex w-full bg-white dark:bg-slate-800"
         >
           <td class="w-1/4 p-4 px-6 text-gray-900 dark:text-slate-600">
@@ -59,6 +60,10 @@
           </td>
         </tr>
       </tbody>
+
+      <div class="item error" v-if="input && !filteredList().length">
+        <p>No results found!</p>
+      </div>
     </table>
   </div>
 </template>
@@ -73,9 +78,11 @@ import {
 import { ref } from "vue";
 import ActionItem from "../../components/adminPanel/ActionItem.vue";
 import TableThead from "../../components/adminPanel/TableThead.vue";
-import MovieAPI from "../../services/MovieAPI";
 
-const movies = ref(null);
+import MovieAPI from "../../services/MovieAPI";
+// import TheSearch from "../../components/adminPanel/TheSearch.vue";
+
+const movies = ref([]);
 
 const loadMovies = async () => {
   try {
@@ -94,5 +101,13 @@ const deleteMovie = async (movieId) => {
   } catch (error) {
     console.log(error);
   }
+};
+const input = ref("");
+
+const filteredList = () => {
+  const lang = localStorage.getItem("lang");
+  return movies.value.filter((movie) =>
+    movie.movie[lang].toLowerCase().includes(input.value.toLowerCase())
+  );
 };
 </script>
