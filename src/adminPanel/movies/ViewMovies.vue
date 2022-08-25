@@ -18,6 +18,7 @@
   </div>
   <div>
     <table
+      v-if="movies.length"
       class="w-full text-center divide-y divide-gray-200 shadow-md dark:divide-slate-700"
     >
       <TableThead :titles="['id', 'Movie_en', 'Movie_ka', 'action']" />
@@ -64,6 +65,7 @@
         </tr>
       </tbody>
     </table>
+    <TheSpiner v-else />
   </div>
 </template>
 
@@ -77,9 +79,8 @@ import {
 import { ref } from "vue";
 import ActionItem from "../../components/adminPanel/ActionItem.vue";
 import TableThead from "../../components/adminPanel/TableThead.vue";
-
 import MovieAPI from "../../services/MovieAPI";
-// import TheSearch from "../../components/adminPanel/TheSearch.vue";
+import TheSpiner from "../../components/adminPanel/TheSpiner.vue";
 
 const movies = ref([]);
 
@@ -87,6 +88,7 @@ const loadMovies = async () => {
   try {
     const response = await MovieAPI.getMovies();
     movies.value = response.data;
+    console.log(movies.value.length);
   } catch (err) {
     console.log(err);
   }

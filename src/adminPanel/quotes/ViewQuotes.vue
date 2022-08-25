@@ -18,6 +18,7 @@
   </div>
   <div>
     <table
+      v-if="quotes.length"
       class="w-full text-center divide-y divide-gray-200 shadow-md dark:divide-slate-700"
     >
       <TableThead
@@ -32,7 +33,6 @@
         ]"
       />
       <tbody
-        v-if="quotes"
         class="flex flex-col items-center w-full overflow-x-hidden overflow-y-scroll bg-white dark:bg-slate-800 rounded-b-md h-96"
       >
         <tr
@@ -85,10 +85,8 @@
           <td>{{ $t("No_results_found!") }}</td>
         </tr>
       </tbody>
-      <div v-else>
-        <TheSpiner />
-      </div>
     </table>
+    <TheSpiner v-else />
   </div>
 </template>
 
@@ -103,7 +101,7 @@ import { ref } from "vue";
 import ActionItem from "../../components/adminPanel/ActionItem.vue";
 import TableThead from "../../components/adminPanel/TableThead.vue";
 import QuoteAPI from "../../services/QuoteAPI";
-import TheSpiner from "../../components/frontend/TheSpiner.vue";
+import TheSpiner from "../../components/adminPanel/TheSpiner.vue";
 const image = import.meta.env.VITE_APP_BASE_URL;
 
 const quotes = ref([]);
