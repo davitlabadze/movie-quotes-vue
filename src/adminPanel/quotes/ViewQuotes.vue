@@ -18,7 +18,6 @@
   </div>
   <div>
     <table
-      v-if="quotes.length"
       class="w-full text-center divide-y divide-gray-200 shadow-md dark:divide-slate-700"
     >
       <TableThead
@@ -33,6 +32,7 @@
         ]"
       />
       <tbody
+        v-if="quotes.length > 0"
         class="flex flex-col items-center w-full overflow-x-hidden overflow-y-scroll bg-white dark:bg-slate-800 rounded-b-md h-96"
       >
         <tr
@@ -85,8 +85,9 @@
           <td>{{ $t("No_results_found!") }}</td>
         </tr>
       </tbody>
+      <NoInformationAvailable v-else-if="!loading && quotes.length === 0" />
+      <TheSpiner v-else />
     </table>
-    <TheSpiner v-else />
   </div>
 </template>
 
@@ -102,13 +103,18 @@ import ActionItem from "../../components/adminPanel/ActionItem.vue";
 import TableThead from "../../components/adminPanel/TableThead.vue";
 import QuoteAPI from "../../services/QuoteAPI";
 import TheSpiner from "../../components/adminPanel/TheSpiner.vue";
+import NoInformationAvailable from "../../components/adminPanel/NoInformationAvailable.vue";
 const image = import.meta.env.VITE_APP_BASE_URL;
 
 const quotes = ref([]);
+const loading = ref(null);
+
 const loadQuotes = async () => {
   try {
+    loading.value = true;
     const response = await QuoteAPI.getQuotes();
     quotes.value = response.data;
+    loading.value = false;
   } catch (error) {
     console.log(error);
   }

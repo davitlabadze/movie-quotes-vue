@@ -18,12 +18,12 @@
   </div>
   <div>
     <table
-      v-if="movies.length"
       class="w-full text-center divide-y divide-gray-200 shadow-md dark:divide-slate-700"
     >
       <TableThead :titles="['id', 'Movie_en', 'Movie_ka', 'action']" />
 
       <tbody
+        v-if="movies.length > 0"
         class="flex flex-col items-center w-full overflow-x-hidden overflow-y-scroll bg-white dark:bg-slate-800 rounded-b-md h-96"
       >
         <tr
@@ -64,8 +64,9 @@
           <td>{{ $t("No_results_found!") }}</td>
         </tr>
       </tbody>
+      <NoInformationAvailable v-else-if="!loading && movies.length === 0" />
+      <TheSpiner v-else />
     </table>
-    <TheSpiner v-else />
   </div>
 </template>
 
@@ -81,14 +82,16 @@ import ActionItem from "../../components/adminPanel/ActionItem.vue";
 import TableThead from "../../components/adminPanel/TableThead.vue";
 import MovieAPI from "../../services/MovieAPI";
 import TheSpiner from "../../components/adminPanel/TheSpiner.vue";
+import NoInformationAvailable from "../../components/adminPanel/NoInformationAvailable.vue";
 
 const movies = ref([]);
-
+const loading = ref(null);
 const loadMovies = async () => {
   try {
+    loading.value = true;
     const response = await MovieAPI.getMovies();
     movies.value = response.data;
-    console.log(movies.value.length);
+    loading.value = false;
   } catch (err) {
     console.log(err);
   }
