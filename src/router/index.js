@@ -74,6 +74,12 @@ const routes = [
       },
     ],
   },
+
+  {
+    path: "/:pathMatch(.*)*",
+    name: "PageNotFound",
+    component: () => import("../404/PageNotFound.vue"),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
