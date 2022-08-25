@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-center py-32">
-    <div v-if="data" class="rounded-lg">
+  <div class="flex justify-center py-32" v-if="data">
+    <div class="rounded-lg">
       <div class="flex justify-center h-96">
         <img
           class="object-cover h-full rounded-lg"
@@ -21,24 +21,26 @@
         </router-link>
       </div>
     </div>
-    <div v-else>
-      <the-spiner />
-    </div>
   </div>
+  <NoInfromationAvailable v-else-if="!loading && !data" />
+  <TheSpiner v-else />
 </template>
 
 <script setup>
 import { ref } from "vue";
 import TheSpiner from "../components/frontend/TheSpiner.vue";
 import getDataAPI from "../services/getDataAPI";
+import NoInfromationAvailable from "../components/frontend/NoInfromationAvailable.vue";
 const image = import.meta.env.VITE_APP_BASE_URL;
 
 const data = ref(null);
-
+const loading = ref(null);
 const loadQuote = async () => {
   try {
+    loading.value = true;
     const response = await getDataAPI.getQuote();
     data.value = response.data.singleQuote;
+    loading.value = false;
   } catch (err) {
     console.log(err);
   }
